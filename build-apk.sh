@@ -11,7 +11,7 @@ mkdir -p "$DISTS"
 
 echo "[1/8] web varlıkları (göreli yollar) hazırlanıyor…"
 mkdir -p "$STAGE/assets/web" "$STAGE/gen" "$STAGE/obj" "$STAGE/out"
-cp public/index.html public/style.css public/app.js public/veri.js "$STAGE/assets/web/"
+cp public/index.html public/style.css public/app.js public/veri.js public/surum.json "$STAGE/assets/web/"
 cp data/dictionary.json "$STAGE/assets/web/turkce-veri.json"
 cp android/widget-secimler.json "$STAGE/assets/"
 sed -E 's#(href|src)="/#\1="./#g' -i "$STAGE/assets/web/index.html"

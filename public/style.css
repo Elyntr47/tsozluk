@@ -1470,3 +1470,42 @@ mark { transition: background .2s; }
   .arama-ust { flex-direction: column; align-items: flex-start; gap: 6px; }
   .hero-chips { justify-content: flex-start; }
 }
+
+/* --- Yeni sürüm uyarı çubuğu --- */
+#surumBar {
+  position: fixed;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: var(--on-accent);
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(14, 122, 106, .35);
+  animation: asagiGel .35s ease;
+  max-width: 560px;
+  margin: 0 auto;
+}
+#surumBar[hidden] { display: none; }
+#surumBar .surum-metin { flex: 1; font-weight: 600; }
+#surumBar .surum-indir {
+  color: var(--on-accent);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+#surumBar button#surumKapat {
+  background: transparent;
+  border: 0;
+  color: var(--on-accent);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  opacity: .85;
+}
+#surumBar button#surumKapat:hover { opacity: 1; }

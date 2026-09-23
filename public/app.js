@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var SURUM = { ad: 'v1.0.10', kod: 110 };
+  var SURUM = { ad: 'v1.0.11', kod: 111 };
   var APK_ADI = 'tsozlukv1.apk';
   var TEMALAR = {
     acik:  { ad: 'Aydınlık', mbg: '#fffefa', ornek: '#f6f6f4', vurgu: '#0e7a6a' },
@@ -1560,6 +1560,23 @@ function getJSON(url) {
   document.addEventListener('keydown', function (ev) {
     if (ev.key === 'Escape' && document.getElementById('turOverlay')) turKapat();
   });
+
+  function surumKontrol() {
+    if (window.apkTespit && window.apkTespit()) return;
+    var bar = document.getElementById('surumBar');
+    if (!bar) return;
+    fetch('surum.json', { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error();
+      return r.json();
+    }).then(function (s) {
+if (s && typeof s.kod === 'number' && s.kod > SURUM.kod) {
+      bar.hidden = false;
+      var kapat = document.getElementById('surumKapat');
+      if (kapat) kapat.addEventListener('click', function () { bar.hidden = true; });
+    }
+    }).catch(function () {});
+  }
+  surumKontrol();
 
   window.addEventListener('hashchange', route);
   route();

@@ -13,6 +13,7 @@ mkdir -p "$OUT"
 cp "$WS/public/style.css" "$OUT/style.css"
 cp "$WS/public/app.js" "$OUT/app.js"
 cp "$WS/public/veri.js" "$OUT/veri.js"
+cp "$WS/public/surum.json" "$OUT/surum.json"
 
 # index.html'e "TSOZUK_STATIC" bayrağını veri katmanından önce ekle
 node -e '

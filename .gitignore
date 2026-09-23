@@ -3,6 +3,9 @@ android/tsozluk.keystore
 *.idsig
 *.pem
 
+# yönetim paneli şifresi
+.panel-sifre
+
 # build çıktıları
 netlify-deploy/
 public/*.apk
