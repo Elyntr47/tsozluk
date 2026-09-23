@@ -42,7 +42,11 @@ public class MainActivity extends Activity {
 
         web.addJavascriptInterface(new SozlukBridge(this), "TSOZUK_BRIDGE");
         setContentView(web);
-        web.loadUrl(ANA);
+
+        String hash = getIntent().getStringExtra("hash");
+        if (hash == null || hash.trim().isEmpty()) hash = "";
+        if (!hash.isEmpty() && !hash.startsWith("#")) hash = "#" + hash;
+        web.loadUrl(ANA + hash);
     }
 
     private static class VarlikClient extends WebViewClient {

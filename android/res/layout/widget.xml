@@ -19,28 +19,15 @@
         android:letterSpacing="0.1" />
 
     <TextView
-        android:id="@+id/w_yeni"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:text="↻"
-        android:textColor="@color/muted"
-        android:textSize="16sp"
-        android:padding="2dp"
-        android:contentDescription="Yeni kelime" />
-
-    <TextView
         android:id="@+id/w_kelime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/w_baslik"
-        android:layout_toStartOf="@id/w_yeni"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
         android:fontFamily="serif"
-        android:text="Türkçe Sözlük"
+        android:text="Yapay zekâya sor"
         android:textColor="@color/ink"
-        android:textSize="17sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:singleLine="true"
         android:ellipsize="end" />
@@ -51,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/w_kelime"
         android:layout_marginTop="2dp"
-        android:text="@string/app_name"
+        android:text="Dokun, kelimeni sor — anında yanıt"
         android:textColor="@color/soft"
         android:textSize="12sp"
         android:maxLines="2"

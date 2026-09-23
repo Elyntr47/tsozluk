@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var SURUM = { ad: 'v1.0.11', kod: 111 };
+  var SURUM = { ad: 'v1.0.10', kod: 110 };
   var APK_ADI = 'tsozlukv1.apk';
   var TEMALAR = {
     acik:  { ad: 'Aydınlık', mbg: '#fffefa', ornek: '#f6f6f4', vurgu: '#0e7a6a' },
@@ -1029,11 +1029,32 @@ function getJSON(url) {
   }
 
   /* ---------- Yapay zekâ (ücretsiz, anahtarsız) ---------- */
-  var AI_ADRES = null;
+  var AI_NETLIFY = null;
+  function aiNetlifyAdresi() {
+    if (AI_NETLIFY !== null) return Promise.resolve(AI_NETLIFY);
+    return fetch('surum.json', { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error();
+      return r.json();
+    }).then(function (s) {
+      AI_NETLIFY = String((s && s.ai) || '').trim().replace(/\/+$/, '');
+      return AI_NETLIFY;
+    }).catch(function () {
+      AI_NETLIFY = '';
+      return AI_NETLIFY;
+    });
+  }
   function aiIste(prompt) {
+    var hedef = '/api/ai';
+    var once = Promise.resolve(hedef);
+    if (window.apkTespit && window.apkTespit()) {
+      once = aiNetlifyAdresi().then(function (a) {
+        if (!a) throw new Error('AI sunucu adresi ayarlanmadı (surum.json → ai).');
+        return a + '/api/ai';
+      });
+    }
     var deneme = 0;
-    var denemeTek = function () {
-      return fetch('/api/ai', {
+    var denemeTek = function (ul) {
+      return fetch(ul, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt: String(prompt) })
@@ -1054,12 +1075,12 @@ function getJSON(url) {
         }
         deneme++;
         if (deneme < 3) {
-          return new Promise(function (g) { setTimeout(g, deneme * 3000); }).then(denemeTek);
+          return new Promise(function (g) { setTimeout(g, deneme * 3000); }).then(function () { return denemeTek(ul); });
         }
         throw e;
       });
     };
-    return denemeTek();
+    return once.then(denemeTek);
   }
 
   var AI_ORNEKLER = [
