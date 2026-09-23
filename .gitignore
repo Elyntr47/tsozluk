@@ -1,0 +1,10 @@
+# imza anahtarı (ASLA yüklemeyin)
+android/tsozluk.keystore
+*.idsig
+*.pem
+
+# build çıktıları
+netlify-deploy/
+public/*.apk
+node_modules/
+*.log

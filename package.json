@@ -1,0 +1,10 @@
+{
+  "name": "turkce-sozluk-demo",
+  "version": "1.0.0",
+  "description": "TDK benzeri Türkçe sözlük demo uygulaması",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Türkçe Sözlük</string>
+    <string name="widget_name">Türkçe Sözlük</string>
+    <string name="widget_desc">Rastgele bir kelimeyi gösterir, dokununca sözlüğü açar.</string>
+    <string name="widget_head">TÜRKÇE SÖZLÜK</string>
+</resources>

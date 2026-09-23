@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_kok"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/w_baslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/widget_head"
+        android:textColor="@color/teal"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1" />
+
+    <TextView
+        android:id="@+id/w_yeni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="↻"
+        android:textColor="@color/muted"
+        android:textSize="16sp"
+        android:padding="2dp"
+        android:contentDescription="Yeni kelime" />
+
+    <TextView
+        android:id="@+id/w_kelime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/w_baslik"
+        android:layout_toStartOf="@id/w_yeni"
+        android:layout_marginTop="4dp"
+        android:fontFamily="serif"
+        android:text="Türkçe Sözlük"
+        android:textColor="@color/ink"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/w_anlam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/w_kelime"
+        android:layout_marginTop="2dp"
+        android:text="@string/app_name"
+        android:textColor="@color/soft"
+        android:textSize="12sp"
+        android:maxLines="2"
+        android:ellipsize="end" />
+</RelativeLayout>
